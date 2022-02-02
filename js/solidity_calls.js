@@ -53,16 +53,17 @@ load();
 
 
 
-function enter_game() {
+async function enter_game() {
     const account = await getCurrentAccount();
-    bet = parseInt(document.getElementById("bet_field").value);
+    bet = parseInt(document.getElementById("bet_value").value);
     bet = bet*(10**9) //gwei to wei
     await window.contract.methods.enterGame().send({ from: account,
         gas: "3000000", value: bet.toString()});
 }
 
-function funds_to_casino(){
-    await window.contract.methods.fundsToCasino(guess).send({ from: account,
+async function funds_to_casino(){
+    const account = await getCurrentAccount();
+    await window.contract.methods.fundsToCasino().send({ from: account,
         gas: "3000000"});
 }
 
