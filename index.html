@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" href="styles.css">
+
+		<script src="js\guessing_logic.js"></script>
+		<script src="js\utils.js"></script>
+
+	</head>
+	<body>
+		
+		<h1 id="title">Guessing game</h1>
+		<br>
+		<h3>Generate the range of possible numbers. It has to be > 32.</h3>
+	  <div id="min_value_field" style="float:left;margin-right:20px">
+	    <label for="min_value" style="display:block">Min Value</label>
+		<input id="min_value"  tyle="display:block" id="min_value" type="number" min = "0" value="0">
+	  </div>
+
+	  <div id = "max_value_field" style="float:left;margin-right:20px;">
+	    <label style="display:block" for="max_value">Max Value</label>
+		<input id="max_value" style="display:block" id="max_value" type="number" min = "0" value="32">
+	  </div>
+
+	  <div id = "bet_field" style="float:left;margin-right:20px;">
+	    <label style="display:block" for="bet_value">Bet in ETH</label>
+		<input style="display:block" id="bet_value" type="number" min = "0.0001" step = "0.0001" value = "0.0001">
+	  </div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div>		<button id='start_button' onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num()">Start guessing!</button>
+</div>
+
+
+<div>		<button id='reset' style="display:none" onclick="show(['min_value_field','max_value_field','bet_field','start_button'])">Reset! (you loose your bet)</button>
+</div>
+<br>
+
+
+
+
+	<div id = "setup_field" style="display:none"></div>
+
+		<p id = "guess_area" style = "display:none">
+		write your guess here
+		<input id="guess_value" type="number" min = "0" step="1">
+		<button onclick="makeGuess();">Guess!</button>
+
+</p>
+
+	<div id="content"></div>
+	<div id="counter"></div>
+
+	<!-- show random number -->
+	<div id="random_number" ></div>
+
+
+	</body>
+	</html>
