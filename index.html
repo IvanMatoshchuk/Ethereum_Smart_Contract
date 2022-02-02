@@ -4,10 +4,13 @@
 		<meta charset="utf-8">
 		
 		<link rel="stylesheet" href="styles.css">
-
+		
+		<script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
 		<script src="js\guessing_logic.js"></script>
 		<script src="js\utils.js"></script>
+		<script src="js\solidity_calls.js"></script>
 
+		
 	</head>
 	<body>
 		
@@ -25,8 +28,8 @@
 	  </div>
 
 	  <div id = "bet_field" style="float:left;margin-right:20px;">
-	    <label style="display:block" for="bet_value">Bet in ETH</label>
-		<input style="display:block" id="bet_value" type="number" min = "0.0001" step = "0.0001" value = "0.0001">
+	    <label style="display:block" for="bet_value">Bet in Gwei</label>
+		<input style="display:block" id="bet_value" type="number" min = "1" step = "1" value = "1">
 	  </div>
 
 <br>
@@ -34,11 +37,13 @@
 <br>
 <br>
 
-<div>		<button id='start_button' onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num()">Start guessing!</button>
+<div>		
+	<button id='start_button' onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num(), enter_game()">Start guessing!</button>
 </div>
 
 
-<div>		<button id='reset' style="display:none" onclick="show(['min_value_field','max_value_field','bet_field','start_button'])">Reset! (you loose your bet)</button>
+<div>		
+	<button id='reset' style="display:none" onclick="show(['min_value_field','max_value_field','bet_field','start_button']), funds_to_casino()">Reset! (you loose your bet)</button>
 </div>
 <br>
 
