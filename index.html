@@ -6,9 +6,11 @@
 		<link rel="stylesheet" href="styles.css">
 		
 		<script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
+		<script src="js\load.js"></script>
+		<script src="js\solidity_calls.js"></script>
 		<script src="js\guessing_logic.js"></script>
 		<script src="js\utils.js"></script>
-		<script src="js\solidity_calls.js"></script>
+		
 
 		
 	</head>
@@ -32,20 +34,20 @@
 		<input style="display:block" id="bet_value" type="number" min = "1000000" step = "1000000" value = "1000000">
 	  </div>
 
-<br>
-<br>
-<br>
-<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
-<div>		
-	<button id='start_button' onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num(), enter_game()">Start guessing!</button>
-</div>
+		<div>		
+			<button id='start_button' onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num(), enter_game()">Start guessing!</button>
+		</div>
 
 
-<div>		
-	<button id='reset' style="display:none" onclick="show(['min_value_field','max_value_field','bet_field','start_button']), funds_to_casino()">Reset! (you loose your bet)</button>
-</div>
-<br>
+		<div>		
+			<button id='reset' style="display:none" onclick="show(['min_value_field','max_value_field','bet_field','start_button'])">Reset! (lose your bet)</button>
+		</div>
+		<br>
 
 
 
@@ -53,17 +55,20 @@
 	<div id = "setup_field" style="display:none"></div>
 
 		<p id = "guess_area" style = "display:none">
-		write your guess here
-		<input id="guess_value" type="number" min = "0" step="1">
-		<button onclick="makeGuess();">Guess!</button>
-
-</p>
+			write your guess here
+			<input id="guess_value" type="number" min = "0" step="1">
+			<button onclick="makeGuess();">Guess!</button>
+		</p>
 
 	<div id="content"></div>
 	<div id="counter"></div>
 
 	<!-- show random number -->
 	<div id="random_number" ></div>
+
+	<div id="dev_information">
+		<p id="balance"></p>
+	</div>
 
 
 	</body>

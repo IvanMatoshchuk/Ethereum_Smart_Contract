@@ -17,12 +17,44 @@ async function loadContract() {
             "type": "function"
         },
         {
+            "constant": true,
+            "inputs": [],
+            "name": "getBalance",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "constant": false,
             "inputs": [],
             "name": "enterGame",
             "outputs": [],
             "payable": true,
             "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "fill_piggybank",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "payout",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -39,7 +71,7 @@ async function loadContract() {
             "stateMutability": "view",
             "type": "function"
         }
-    ], '0xa8fa4013B9f5B8196Ed225A962259d19170D7000');
+    ], '0xB415BCB4d4941B9b5c39a9c4b8162993F5f8bf51');
             }
             
 
@@ -50,3 +82,4 @@ async function load() {
 }
 
 load();
+
