@@ -1,75 +1,68 @@
 <!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		
-		<link rel="stylesheet" href="styles.css">
-		
-		<script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
-		<script src="js\load.js"></script>
-		<script src="js\solidity_calls.js"></script>
-		<script src="js\guessing_logic.js"></script>
-		<script src="js\utils.js"></script>
-		
+<html lang="en">
 
-		
-	</head>
-	<body>
-		
-		<h1 id="title">Guessing game</h1>
-		<br>
-		<h3>Generate the range of possible numbers. It has to be > 32.</h3>
-	  <div id="min_value_field" style="float:left;margin-right:20px">
-	    <label for="min_value" style="display:block">Min Value</label>
-		<input id="min_value"  tyle="display:block" id="min_value" type="number" min = "0" value="0">
-	  </div>
+<head>
+	<meta charset="utf-8">
 
-	  <div id = "max_value_field" style="float:left;margin-right:20px;">
-	    <label style="display:block" for="max_value">Max Value</label>
-		<input id="max_value" style="display:block" id="max_value" type="number" min = "0" value="32">
-	  </div>
+	<link rel="stylesheet" href="https://unpkg.com/bulma">
+	<script src='https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js'></script>
+	<script src="js\load.js"></script>
+	<script src="js\solidity_calls.js"></script>
+	<script src="js\guessing_logic.js"></script>
+	<script src="js\utils.js"></script>
 
-	  <div id = "bet_field" style="float:left;margin-right:20px;">
-	    <label style="display:block" for="bet_value">Bet in Gwei</label>
-		<input style="display:block" id="bet_value" type="number" min = "1000000" step = "1000000" value = "1000000">
-	  </div>
 
-		<br>
-		<br>
-		<br>
-		<br>
 
-		<div>		
-			<button id='start_button' onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num(), enter_game()">Start guessing!</button>
+</head>
+
+<body>
+
+	<h1 class="is-size-1" style="text-align: center;">Guessing game</h1>
+	<h3 style="margin: 20px;">Generate the range of possible numbers. It has to be > 32.</h3>
+
+	<div style="display: flex; width: 100%; place-content: center; margin: 20px;">
+		<div id="min_value_field" style="float:left;margin-right:20px">
+			<label for="min_value" style="display:block">Min Value</label>
+			<input class="input is-info" id="min_value" tyle="display:block" id="min_value" type="number" min="0" value="0">
 		</div>
-
-
-		<div>		
-			<button id='reset' style="display:none" onclick="show(['min_value_field','max_value_field','bet_field','start_button'])">Reset! (lose your bet)</button>
+	
+		<div id="max_value_field" style="float:left;margin-right:20px;">
+			<label style="display:block" for="max_value">Max Value</label>
+			<input class="input is-info" id="max_value" style="display:block" id="max_value" type="number" min="0" value="32">
 		</div>
-		<br>
+	
+		<div id="bet_field" style="float:left;margin-right:20px;">
+			<label style="display:block" for="bet_value">Bet in Gwei</label>
+			<input class="input is-info" style="display:block" id="bet_value" type="number" min="1000000" step="1000000" value="1000000">
+		</div>
+	</div>
 
+	<div style="margin: 0 5%;">
+		<button style="float: right;" class="button is-primary" id='start_button'
+			onclick="start_guessing(['min_value_field','max_value_field','bet_field', 'start_button']), generate_random_num(), enter_game()">Start
+			guessing!</button>
+	</div>
 
+	<div id="setup_field" style="display:none"></div>
 
+	<div style="margin: 20px;">
+		<div id="guess_area" style="display:none; justify-content: space-around;">
+			<div style="display: flex; flex-flow: row; width: 40%;">
+				<input class="input is-primary" id="guess_value" type="number" min="0" step="1">
+				<button class="button is-primary" onclick="makeGuess();">Guess!</button>
+			</div>
+			<div style="width: 40%;">
+				<button id='reset' class="button is-danger" style="display:none; margin:auto"
+				onclick="show(['min_value_field','max_value_field','bet_field','start_button'])">Reset! (lose your
+				bet)</button>
+			</div>
+		</div>
+	</div>
 
-	<div id = "setup_field" style="display:none"></div>
-
-		<p id = "guess_area" style = "display:none">
-			write your guess here
-			<input id="guess_value" type="number" min = "0" step="1">
-			<button onclick="makeGuess();">Guess!</button>
-		</p>
 
 	<div id="content"></div>
 	<div id="counter"></div>
 
-	<!-- show random number -->
-	<div id="random_number" ></div>
+</body>
 
-	<div id="dev_information">
-		<p id="balance"></p>
-	</div>
-
-
-	</body>
-	</html>
+</html>

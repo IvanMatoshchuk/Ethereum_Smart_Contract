@@ -50,7 +50,7 @@ function start_guessing(elementId_array) {
 		document.getElementById("setup_field").innerHTML = to_show;
 
 		// show guessing-logic field
-		document.getElementById('guess_area').style.display = "block";
+		document.getElementById('guess_area').style.display = "flex";
 
 	}
 

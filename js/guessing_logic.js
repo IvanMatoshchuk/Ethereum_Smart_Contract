@@ -28,10 +28,12 @@ function generate_random_num() {
 	console.log("Max value: " + max_value + " Type: " + typeof(max_value))
 
 	var randomnumber = Math.floor(Math.random() * (max_value - min_value + 1)) + min_value;
-	document.getElementById("random_number").innerHTML = randomnumber;
+    console.log(randomnumber)
+	//document.getElementById("random_number").innerHTML = randomnumber;
 
 	rnd = randomnumber;
 	cnt = 0;
+	document.getElementById("counter").innerHTML = "Steps made: " + cnt;
 }
 
 
